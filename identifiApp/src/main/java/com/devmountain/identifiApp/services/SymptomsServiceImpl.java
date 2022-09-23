@@ -6,13 +6,14 @@ import com.devmountain.identifiApp.entities.User;
 import com.devmountain.identifiApp.repositories.SymptomsRepository;
 import com.devmountain.identifiApp.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+@Service
 public class SymptomsServiceImpl implements SymptomsService {
     @Autowired
     private UserRepository userRepository;
@@ -20,6 +21,8 @@ public class SymptomsServiceImpl implements SymptomsService {
     private SymptomsRepository symptomsRepository;
     @Autowired
     private SymptomsDto symptomsDto;
+    @Autowired
+    private SymptomsService symptomsService;
     @Override
     @Transactional
     public void addSymptoms(SymptomsDto symptomsDto, Long userId){
@@ -36,7 +39,7 @@ public class SymptomsServiceImpl implements SymptomsService {
     }
     @Override
     @Transactional
-    public void updateSymptomsById(Long symptomsId){
+    public void updateSymptomsById(SymptomsDto symptomsDto){
         Optional<Symptoms> symptomsOptional = symptomsRepository.findById(symptomsDto.getId());
         symptomsOptional.ifPresent(symptoms -> {
             symptoms.setSymptomName(symptomsDto.getSymptomName());

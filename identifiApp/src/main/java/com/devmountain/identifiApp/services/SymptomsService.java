@@ -14,7 +14,7 @@ public interface SymptomsService {
     void deleteSymptomsById(Long symptomsId);
 
     @Transactional
-    void updateSymptomsById(Long symptomsId);
+    void updateSymptomsById(SymptomsDto symptomsDto);
 
     List<SymptomsDto> getAllSymptomsByUserId(Long userId);
 
