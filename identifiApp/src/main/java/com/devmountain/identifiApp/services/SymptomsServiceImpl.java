@@ -19,10 +19,7 @@ public class SymptomsServiceImpl implements SymptomsService {
     private UserRepository userRepository;
     @Autowired
     private SymptomsRepository symptomsRepository;
-    @Autowired
-    private SymptomsDto symptomsDto;
-    @Autowired
-    private SymptomsService symptomsService;
+
     @Override
     @Transactional
     public void addSymptoms(SymptomsDto symptomsDto, Long userId){
