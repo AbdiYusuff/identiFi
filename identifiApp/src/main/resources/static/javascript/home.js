@@ -1,108 +1,97 @@
-
 const cookieArr = document.cookie.split("=")
 const userId = cookieArr[1];
 
-const submitForm = document.getElementById("note-form")
-const noteContainer = document.getElementById("note-container")
 
-let noteBody = document.getElementById(`note-body`)
-let updateNoteBtn = document.getElementById('update-note-button')
+console.log(userId)
+
+const submitForm = document.getElementById("symptoms-form")
+const symptomsContainer = document.getElementById("symptoms-container")
+
 
 const headers = {
     'Content-Type': 'application/json'
 }
 
-const baseUrl = "http://localhost:8080/api/v1/notes/"
+const baseUrl = "http://localhost:8080/api/v1/symptoms/"
 
 const handleSubmit = async (e) => {
     e.preventDefault()
     let bodyObj = {
-        body: document.getElementById("note-input").value
+        symptomName: document.getElementById("symptom-name-input").value,
+        dateOccurred: document.getElementById("date-occurred").value,
+         dateOccurred: document.getElementById("duration").value,
+        callHelp: document.getElementById("call-help").checked
     }
-    await addNote(bodyObj);
-    document.getElementById("note-input").value = ''
+    await addSymptoms(bodyObj);
+    document.getElementById("symptom-name-input").value = ''
+    document.getElementById("date-occurred").value = ''
+    document.getElementById("duration").value = ''
+    document.getElementById("call-help").checked = ''
 }
-
-async function addNote(obj) {
+async function addSymptoms(Obj) {
     const response = await fetch(`${baseUrl}user/${userId}`, {
         method: "POST",
-        body: JSON.stringify(obj),
+        body: JSON.stringify(bodyObj),
+        body: JSON.stringify(obj)
         headers: headers
     })
         .catch(err => console.error(err.message))
     if (response.status == 200) {
-        return getNotes(userId);
+        return getSymptoms(userId);
     }
 }
-
-async function getNotes(userId) {
+async function getSymptoms(userId) {
     await fetch(`${baseUrl}user/${userId}`, {
         method: "GET",
         headers: headers
     })
         .then(response => response.json())
-        .then(data => createNoteCards(data))
+        .then(data => createBillCards(data))
         .catch(err => console.error(err))
 }
 
-async function handleDelete(noteId){
-    await fetch(baseUrl + noteId, {
+async function handleDelete(SymptomsId){
+    await fetch(baseUrl + SymptomsId, {
         method: "DELETE",
         headers: headers
     })
         .catch(err => console.error(err))
 
-    return getNotes(userId);
+    return getSymptoms(userId);
 }
 
-async function getNoteById(noteId){
-    await fetch(baseUrl + noteId, {
-        method: "GET",
-        headers: headers
-    })
-        .then(res => res.json())
-        .then(data => populateModal(data))
-        .catch(err => console.error(err.message))
-}
+// async function getBillById(billId){
+//     await fetch(baseUrl + billId, {
+//         method: "GET",
+//         headers: headers
+//     })
+//         .then(res => res.json())
+//         .then(data => populateModal(data))
+//         .catch(err => console.error(err.message))
+// }
 
-async function handleNoteEdit(noteId){
-    let bodyObj = {
-        id: noteId,
-        body: noteBody.value
-    }
-
-    await fetch(baseUrl, {
-        method: "PUT",
-        body: JSON.stringify(bodyObj),
-        headers: headers
-    })
-        .catch(err => console.error(err))
-
-    return getNotes(userId);
-}
-
-const createNoteCards = (array) => {
-    noteContainer.innerHTML = ''
+const createSymptoms = (array) => {
+    symptomsContainer.innerHTML = ''
     array.forEach(obj => {
-        let noteCard = document.createElement("div")
-        noteCard.classList.add("m-2")
-        noteCard.innerHTML = `
+        console.log(obj)
+        console.log(obj.name)
+        let symptomsCard = document.createElement("div")
+        symptomsCard.classList.add("m-2")
+        symptomsCard.innerHTML = `
             <div class="card d-flex" style="width: 18rem; height: 18rem;">
                 <div class="card-body d-flex flex-column  justify-content-between" style="height: available">
-                    <p class="card-text">${obj.body}</p>
-                    <div class="d-flex justify-content-between">
-                        <button class="btn btn-danger" onclick="handleDelete(${obj.id})">Delete</button>
-                        <button onclick="getNoteById(${obj.id})" type="button" class="btn btn-primary"
-                        data-bs-toggle="modal" data-bs-target="#note-edit-modal">
-                        Edit
-                        </button>
-                    </div>
-                </div>
+                <P class = "card-text">${obj.symptomName}</P>
+                <P class = "card-text">${obj.dateOccurred}</P>
+                <P class = "card-text">${obj.duration}</P>
+                <P class = "card-text">${obj.callHelp}</P>
+               </div>
+               <button class="btn btn-danger" onclick="handleDelete(${obj.id})">Delete</button>
             </div>
         `
-        noteContainer.append(noteCard);
+        billContainer.append(symptomsCard);
     })
 }
+
 function handleLogout(){
     let c = document.cookie.split(";");
     for(let i in c){
@@ -110,17 +99,6 @@ function handleLogout(){
     }
 }
 
-const populateModal = (obj) =>{
-    noteBody.innerText = ''
-    noteBody.innerText = obj.body
-    updateNoteBtn.setAttribute('data-note-id', obj.id)
-}
-
-getNotes(userId);
+getSymptoms(userId);
 
 submitForm.addEventListener("submit", handleSubmit)
-
-updateNoteBtn.addEventListener("click", (e)=>{
-    let noteId = e.target.getAttribute('data-note-id')
-    handleNoteEdit(noteId);
-})
