@@ -9,13 +9,14 @@ const headers = {
 const baseUrl = 'http://localhost:8080/api/v1/users'
 
 const handleSubmit = async (e) =>{
+console.log("login")
     e.preventDefault()
 
     let bodyObj = {
         username: loginUsername.value,
         password: loginPassword.value
     }
-
+    console.log(bodyObj)
     const response = await fetch(`${baseUrl}/login`, {
         method: "POST",
         body: JSON.stringify(bodyObj),

@@ -9,8 +9,7 @@
 </head>
 <h1> IdentiFi </h1>
 <body>
-<section class="vh-100 bg-image"
-         style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+<section class="h-100 gradient-form" style="background-color: #eee;">
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -27,7 +26,7 @@
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="date" id="date-occurred" class="form-control form-control-lg" />
+                                    <input type="number" id="date-occurred" class="form-control form-control-lg" />
                                     <label class="form-label" for="date-occurred">Date Occurred</label>
                                 </div>
 
@@ -37,7 +36,7 @@
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="check" id="call-help" class="form-check-input" />
+                                    <input type="checkbox" id="call-help" class="form-check-input" />
                                     <label class="form-check-label" for="call-help">Called for Help?</label>
                                 </div>
 
@@ -62,7 +61,7 @@
 </section>
 <a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>
 
-<div id="bill-container" class="container-fluid"></div>
+<div id="symptoms-container" class="container-fluid"></div>
 <script src="./javascript/home.js" type="application/javascript"></script>
 </body>
 </html>

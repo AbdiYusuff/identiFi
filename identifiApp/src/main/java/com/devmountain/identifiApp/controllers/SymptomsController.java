@@ -25,7 +25,7 @@ public class SymptomsController {
     public void addSymptoms(@RequestBody SymptomsDto symptomsDto, @PathVariable Long userId){
         symptomsService.addSymptoms(symptomsDto, userId);
     }
-    @PostMapping("/{symptomsId}")
+    @DeleteMapping("/{symptomsId}")
     public void deleteSymptomsById(@PathVariable Long symptomsId){symptomsService.deleteSymptomsById(symptomsId);}
     @PutMapping
     public void updateSymptoms(@RequestBody SymptomsDto symptomsDto){symptomsService.updateSymptomsById(symptomsDto);}

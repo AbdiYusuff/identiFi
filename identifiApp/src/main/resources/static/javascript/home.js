@@ -1,9 +1,6 @@
 const cookieArr = document.cookie.split("=")
 const userId = cookieArr[1];
 
-
-console.log(userId)
-
 const submitForm = document.getElementById("symptoms-form")
 const symptomsContainer = document.getElementById("symptoms-container")
 
@@ -15,11 +12,12 @@ const headers = {
 const baseUrl = "http://localhost:8080/api/v1/symptoms/"
 
 const handleSubmit = async (e) => {
+console.log("submit")
     e.preventDefault()
     let bodyObj = {
         symptomName: document.getElementById("symptom-name-input").value,
         dateOccurred: document.getElementById("date-occurred").value,
-         dateOccurred: document.getElementById("duration").value,
+         duration: document.getElementById("duration").value,
         callHelp: document.getElementById("call-help").checked
     }
     await addSymptoms(bodyObj);
@@ -28,11 +26,10 @@ const handleSubmit = async (e) => {
     document.getElementById("duration").value = ''
     document.getElementById("call-help").checked = ''
 }
-async function addSymptoms(Obj) {
+async function addSymptoms(bodyObj) {
     const response = await fetch(`${baseUrl}user/${userId}`, {
         method: "POST",
         body: JSON.stringify(bodyObj),
-        body: JSON.stringify(obj)
         headers: headers
     })
         .catch(err => console.error(err.message))
@@ -46,12 +43,12 @@ async function getSymptoms(userId) {
         headers: headers
     })
         .then(response => response.json())
-        .then(data => createBillCards(data))
+        .then(data => createSymptomsCards(data))
         .catch(err => console.error(err))
 }
 
-async function handleDelete(SymptomsId){
-    await fetch(baseUrl + SymptomsId, {
+async function handleDelete(symptomsId){
+    await fetch(baseUrl + symptomsId, {
         method: "DELETE",
         headers: headers
     })
@@ -60,21 +57,21 @@ async function handleDelete(SymptomsId){
     return getSymptoms(userId);
 }
 
-// async function getBillById(billId){
-//     await fetch(baseUrl + billId, {
+// async function getSymptoms(symptomsId){
+//     await fetch(baseUrl + symptomsId, {
 //         method: "GET",
 //         headers: headers
 //     })
 //         .then(res => res.json())
-//         .then(data => populateModal(data))
+//         .then(data => createSymptomsCards(data))
 //         .catch(err => console.error(err.message))
 // }
 
-const createSymptoms = (array) => {
+const createSymptomsCards = (array) => {
     symptomsContainer.innerHTML = ''
+console.log(array)
     array.forEach(obj => {
         console.log(obj)
-        console.log(obj.name)
         let symptomsCard = document.createElement("div")
         symptomsCard.classList.add("m-2")
         symptomsCard.innerHTML = `
@@ -88,7 +85,7 @@ const createSymptoms = (array) => {
                <button class="btn btn-danger" onclick="handleDelete(${obj.id})">Delete</button>
             </div>
         `
-        billContainer.append(symptomsCard);
+        symptomsContainer.append(symptomsCard);
     })
 }
 
