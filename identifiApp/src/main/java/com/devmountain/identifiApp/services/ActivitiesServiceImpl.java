@@ -45,6 +45,7 @@ public class ActivitiesServiceImpl implements ActivitiesService {
     public void updateActivitiesById(ActivitiesDto activitiesDto){
         Optional<Activities> activitiesOptional = activitiesRepository.findById(activitiesDto.getId());
         activitiesOptional.ifPresent(activities -> {
+            activities.setActivityName(activitiesDto.getActivityName());
             activities.setLocation(activitiesDto.getLocation());
             activities.setFoodRelated(activitiesDto.getFoodRelated());
             activities.setExerciseRelated(activitiesDto.getExerciseRelated());

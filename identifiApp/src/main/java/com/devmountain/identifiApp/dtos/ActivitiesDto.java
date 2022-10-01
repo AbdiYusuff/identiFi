@@ -14,6 +14,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class ActivitiesDto implements Serializable {
     private Long id;
+    private String activityName;
     private String location;
     private Boolean foodRelated;
     private Boolean exerciseRelated;
@@ -23,6 +24,9 @@ public class ActivitiesDto implements Serializable {
     public ActivitiesDto(Activities activities){
         if(activities.getId() != null){
             this.id = activities.getId();
+        }
+        if(activities.getLocation() !=null){
+            this.activityName = activities.getActivityName();
         }
         if(activities.getLocation() != null){
             this.location = activities.getLocation();

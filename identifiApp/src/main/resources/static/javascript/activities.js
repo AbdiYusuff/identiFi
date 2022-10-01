@@ -1,8 +1,8 @@
 const cookieArr = document.cookie.split("=")
 const userId = cookieArr[1];
 
-const submitForm = document.getElementById("symptoms-form")
-const symptomsContainer = document.getElementById("symptoms-container")
+const submitForm = document.getElementById("activities-form")
+const symptomsContainer = document.getElementById("activities-container")
 
 
 
@@ -11,7 +11,7 @@ const headers = {
 }
 
 
-const baseUrl = "http://localhost:8080/api/v1/symptoms/"
+const baseUrl = "http://localhost:8080/api/v1/activities/"
 
 const handleSubmit = async (e) => {
 console.log("submit")

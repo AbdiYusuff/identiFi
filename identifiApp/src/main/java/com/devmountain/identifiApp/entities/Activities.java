@@ -18,6 +18,8 @@ public class Activities {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
         @Column
+        private String activityName;
+        @Column
         private String location;
         @Column
         private Boolean foodRelated;
@@ -31,6 +33,9 @@ public class Activities {
         private User user;
 
         public Activities(ActivitiesDto activitiesDto){
+                if(activitiesDto.getActivityName() !=null){
+                        this.activityName = activitiesDto.getActivityName();
+                }
                 if(activitiesDto.getLocation() != null){
                         this.location = activitiesDto.getLocation();
                 }

@@ -21,17 +21,17 @@
                             <form id="symptoms-form">
 
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="symptom-name-input" class="form-control form-control-lg" />
+                                    <input type="text" id="symptom-name-input" placeholder="for ex: fever" class="form-control form-control-lg" />
                                     <label class="form-label" for="symptom-name-input">Symptom Name</label>
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="number" id="date-occurred" class="form-control form-control-lg" />
+                                    <input type="number" id="date-occurred" placeholder="for ex: 01012022" class="form-control form-control-lg" />
                                     <label class="form-label" for="date-occurred">Date Occurred</label>
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="number" id="duration" class="form-control form-control-lg" />
+                                    <input type="number" id="duration" placeholder="minutes" class="form-control form-control-lg" />
                                     <label class="form-label" for="duration">Duration</label>
                                 </div>
 
@@ -39,12 +39,6 @@
                                     <input type="checkbox" id="call-help" class="form-check-input" />
                                     <label class="form-check-label" for="call-help">Called for Help?</label>
                                 </div>
-
-
-                                <!--                                <div class="form-outline mb-4">-->
-                                <!--                                    <input type="text" id="image-url" class="form-control form-control-lg" />-->
-                                <!--                                    <label class="form-label" for="image-url">Bill image url</label>-->
-                                <!--                                </div>-->
 
                                 <div class="d-flex justify-content-center">
                                     <button type="submit"
@@ -58,10 +52,14 @@
             </div>
         </div>
     </div>
+    <div>
+        <a href="http://localhost:8080/report.html">View Report</a>
+    </div>
+
 </section>
 <a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>
 
-<div id="symptoms-container" class="container-fluid"></div>
+<!--<div id="symptoms-container" class="container-fluid"></div>-->
 <script src="./javascript/home.js" type="application/javascript"></script>
 </body>
 </html>

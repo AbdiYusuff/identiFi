@@ -5,12 +5,11 @@ const submitForm = document.getElementById("symptoms-form")
 const symptomsContainer = document.getElementById("symptoms-container")
 
 
-
 const headers = {
     'Content-Type': 'application/json'
 }
 
-
+//const baseUrl = "http://localhost:8080/api/v1/symptoms/"
 const baseUrl = "http://localhost:8080/api/v1/symptoms/"
 
 const handleSubmit = async (e) => {
@@ -59,6 +58,16 @@ async function handleDelete(symptomsId){
     return getSymptoms(userId);
 }
 
+// async function getSymptoms(symptomsId){
+//     await fetch(baseUrl + symptomsId, {
+//         method: "GET",
+//         headers: headers
+//     })
+//         .then(res => res.json())
+//         .then(data => createSymptomsCards(data))
+//         .catch(err => console.error(err.message))
+// }
+
 const createSymptomsCards = (array) => {
     symptomsContainer.innerHTML = ''
 console.log(array)
@@ -89,5 +98,3 @@ function handleLogout(){
 }
 
 getSymptoms(userId);
-
-submitForm.addEventListener("submit", handleSubmit)
