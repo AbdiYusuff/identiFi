@@ -1,8 +1,6 @@
 package com.devmountain.identifiApp.controllers;
 
-import com.devmountain.identifiApp.dtos.ActivitiesDto;
 import com.devmountain.identifiApp.dtos.SymptomsDto;
-import com.devmountain.identifiApp.services.ActivitiesService;
 import com.devmountain.identifiApp.services.SymptomsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

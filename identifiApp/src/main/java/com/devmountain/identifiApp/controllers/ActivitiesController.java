@@ -23,7 +23,7 @@ public class ActivitiesController {
     public void addActivities(@RequestBody ActivitiesDto activitiesDto, @PathVariable Long userId){
         activitiesService.addActivities(activitiesDto, userId);
     }
-    @PostMapping("/{activitiesId}")
+    @DeleteMapping("/{activitiesId}")
     public void deleteActivitiesById(@PathVariable Long activitiesId){activitiesService.deleteActivitiesById(activitiesId);}
     @PutMapping
     public void updateActivities(@RequestBody ActivitiesDto activitiesDto){activitiesService.updateActivitiesById(activitiesDto);}

@@ -1,54 +1,54 @@
 const cookieArr = document.cookie.split("=")
 const userId = cookieArr[1];
 
-//const submitForm = document.getElementById("symptoms-form")
-//const symptomsContainer = document.getElementById("symptoms-container")
-//
+const submitForm = document.getElementById("symptoms-form")
+const symptomsContainer = document.getElementById("symptoms-container")
+
 
 
 const headers = {
     'Content-Type': 'application/json'
 }
-//
-//
-//const baseUrl = "http://localhost:8080/api/v1/symptoms/"
-//
-//const handleSubmit = async (e) => {
-//console.log("submit")
-//    e.preventDefault()
-//    let bodyObj = {
-//        symptomName: document.getElementById("symptom-name-input").value,
-//        dateOccurred: document.getElementById("date-occurred").value,
-//         duration: document.getElementById("duration").value,
-//        callHelp: document.getElementById("call-help").checked
-//    }
-//    await addSymptoms(bodyObj);
-//    document.getElementById("symptom-name-input").value = ''
-//    document.getElementById("date-occurred").value = ''
-//    document.getElementById("duration").value = ''
-//    document.getElementById("call-help").checked = ''
-//}
-//async function addSymptoms(bodyObj) {
-//    const response = await fetch(`${baseUrl}user/${userId}`, {
-//        method: "POST",
-//        body: JSON.stringify(bodyObj),
-//        headers: headers
-//    })
-//        .catch(err => console.error(err.message))
-//    if (response.status == 200) {
-//        return getSymptoms(userId);
-//    }
-//}
-//async function getSymptoms(userId) {
-//    await fetch(`${baseUrl}user/${userId}`, {
-//        method: "GET",
-//        headers: headers
-//    })
-//        .then(response => response.json())
-//        .then(data => createSymptomsCards(data))
-//        .catch(err => console.error(err))
-//}
-//
+
+
+const baseUrl = "http://localhost:8080/api/v1/symptoms/"
+
+const handleSubmit = async (e) => {
+console.log("submit")
+    e.preventDefault()
+    let bodyObj = {
+        symptomName: document.getElementById("symptom-name-input").value,
+        dateOccurred: document.getElementById("date-occurred").value,
+         duration: document.getElementById("duration").value,
+        callHelp: document.getElementById("call-help").checked
+    }
+    await addSymptoms(bodyObj);
+    document.getElementById("symptom-name-input").value = ''
+    document.getElementById("date-occurred").value = ''
+    document.getElementById("duration").value = ''
+    document.getElementById("call-help").checked = ''
+}
+async function addSymptoms(bodyObj) {
+    const response = await fetch(`${baseUrl}user/${userId}`, {
+        method: "POST",
+        body: JSON.stringify(bodyObj),
+        headers: headers
+    })
+        .catch(err => console.error(err.message))
+    if (response.status == 200) {
+        return getSymptoms(userId);
+    }
+}
+async function getSymptoms(userId) {
+    await fetch(`${baseUrl}user/${userId}`, {
+        method: "GET",
+        headers: headers
+    })
+        .then(response => response.json())
+        .then(data => createSymptomsCards(data))
+        .catch(err => console.error(err))
+}
+
 //async function handleDelete(symptomsId){
 //    await fetch(baseUrl + symptomsId, {
 //        method: "DELETE",
@@ -58,7 +58,7 @@ const headers = {
 //
 //    return getSymptoms(userId);
 //}
-//
+
 //const createSymptomsCard = (array) => {
 //    symptomsContainer.innerHTML = ''
 //console.log(array)

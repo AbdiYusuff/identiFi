@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/activities.css" type="text/css">
+    <title>IdentiFi-activities</title>
+</head>
+<h1> Activities </h1>
+<body>
+
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h2 class="text-uppercase text-center mb-5">Create an activity </h2>
+
+                            <form id="activities-form">
+
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="activity-name-input" placeholder="for ex: fever" class="form-control form-control-lg" />
+                                    <label class="form-label" for="activity-name-input">Activity Name</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="location" placeholder="for ex: home" class="form-control form-control-lg" />
+                                    <label class="form-label" for="location">Location</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="checkbox" id="food-related" class="form-check-input" />
+                                    <label class="form-check-label" for="food-related">Food Related?</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="checkbox" id="exercise-related" class="form-check-input" />
+                                    <label class="form-check-label" for="exercise-related">Exercise Related?</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="number" id="duration" placeholder="for ex:90" class="form-control form-control-lg" />
+                                    <label class="form-label" for="duration">Duration</label>
+                                </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit"
+                                            id="submit-button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Submit</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="link-buttons">
+        <div>
+            <a href="http://localhost:8080/home.html">Go to Home Page</a>
+        </div>
+        <div>
+            <a href="http://localhost:8080/report.html">View Report</a>
+        </div>
+        <div>
+            <a href="http://localhost:8080/symptoms.html">Go to Record Symptoms Page</a>
+        </div>
+        <div>
+            <a href="http://localhost:8080/home.html">Go to Record Activities Page</a>
+        </div>
+        <a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>
+    </section>
+
+</section>
+
+<!--<div id="activities-container" class="container-fluid"></div>-->
+<script src="./javascript/activities.js" type="application/javascript"></script>
+</body>
+</html>
