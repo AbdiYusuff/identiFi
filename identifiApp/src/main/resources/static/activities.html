@@ -1,83 +1,243 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"-->
+<!--          rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+<!--    <link rel="stylesheet" href="./css/activities.css" type="text/css">-->
+<!--    <title>IdentiFi-activities</title>-->
+<!--</head>-->
+<!--<h1> Activities </h1>-->
+<!--<body>-->
+
+<!--<section class="h-100 gradient-form" style="background-color: #eee;">-->
+<!--    <div class="mask d-flex align-items-center h-100 gradient-custom-3">-->
+<!--        <div class="container h-100">-->
+<!--            <div class="row d-flex justify-content-center align-items-center h-100">-->
+<!--                <div class="col-12 col-md-9 col-lg-7 col-xl-6">-->
+<!--                    <div class="card" style="border-radius: 15px;">-->
+<!--                        <div class="card-body p-5">-->
+<!--                            <h2 class="text-uppercase text-center mb-5">Create an activity </h2>-->
+
+<!--                            <form id="activities-form">-->
+
+<!--                                <div class="form-outline mb-4">-->
+<!--                                    <input type="text" id="activity-name-input" placeholder="for ex: fever" class="form-control form-control-lg" />-->
+<!--                                    <label class="form-label" for="activity-name-input">Activity Name</label>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-outline mb-4">-->
+<!--                                    <input type="text" id="location" placeholder="for ex: home" class="form-control form-control-lg" />-->
+<!--                                    <label class="form-label" for="location">Location</label>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-outline mb-4">-->
+<!--                                    <input type="checkbox" id="food-related" class="form-check-input" />-->
+<!--                                    <label class="form-check-label" for="food-related">Food Related?</label>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-outline mb-4">-->
+<!--                                    <input type="checkbox" id="exercise-related" class="form-check-input" />-->
+<!--                                    <label class="form-check-label" for="exercise-related">Exercise Related?</label>-->
+<!--                                </div>-->
+
+<!--                                <div class="form-outline mb-4">-->
+<!--                                    <input type="number" id="duration" placeholder="for ex:90" class="form-control form-control-lg" />-->
+<!--                                    <label class="form-label" for="duration">Duration</label>-->
+<!--                                </div>-->
+
+<!--                                <div class="d-flex justify-content-center">-->
+<!--                                    <button type="submit"-->
+<!--                                            id="submit-button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Submit</button>-->
+<!--                                </div>-->
+
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <section class="link-buttons">-->
+<!--        <div>-->
+<!--            <a href="http://localhost:8080/home.html">Go to Home Page</a>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <a href="http://localhost:8080/report.html">View Report</a>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <a href="http://localhost:8080/symptoms.html">Go to Record Symptoms Page</a>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <a href="http://localhost:8080/home.html">Go to Record Activities Page</a>-->
+<!--        </div>-->
+<!--        <a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>-->
+<!--    </section>-->
+
+<!--</section>-->
+
+<!--&lt;!&ndash;<div id="activities-container" class="container-fluid"></div>&ndash;&gt;-->
+<!--<script src="./javascript/activities.js" type="application/javascript"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>IdentiFi-home</title>
+
+    <link class="rounded-circle" rel="icon" href="http://prod-upp-image-read.ft.com/1f7a415a-0ce0-11e6-b41f-0beb7e589515" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <!--    <link rel="stylesheet" href="css/home.css" />-->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/activities.css" type="text/css">
-    <title>IdentiFi-activities</title>
+    <link rel="stylesheet" href="./css/home.css" type="text/css">
 </head>
-<h1> Activities </h1>
 <body>
+<!-- Start your project here-->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+        <!-- Toggle button -->
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Navbar brand -->
+            <a class="navbar-brand mt-2 mt-lg-0" href="#"> IdentiFi
+            </a>
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/symptoms.html">Symptoms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/activities.html">Activities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/report.html">Report</a>
+                </li>
+            </ul>
+
+            <div class="d-flex align-items-center justify-content-center pb-4">
+                <a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>
+            </div>
+            <!-- Left links -->
+        </div>
+
+</nav>
+
 
 <section class="h-100 gradient-form" style="background-color: #eee;">
-    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div class="container h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                    <div class="card" style="border-radius: 15px;">
-                        <div class="card-body p-5">
-                            <h2 class="text-uppercase text-center mb-5">Create an activity </h2>
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+                        <div class="col-lg-6">
+                            <div class="card-body p-md-5 mx-md-4">
 
-                            <form id="activities-form">
+                                <div class="text-center">
+                                    <img src="http://prod-upp-image-read.ft.com/1f7a415a-0ce0-11e6-b41f-0beb7e589515"
+                                         style="width: 185px;" alt="logo">
+                                    <h4 class="mt-1 mb-5 pb-1">Record an Activity <h4>
 
-                                <div class="form-outline mb-4">
-                                    <input type="text" id="activity-name-input" placeholder="for ex: fever" class="form-control form-control-lg" />
-                                    <label class="form-label" for="activity-name-input">Activity Name</label>
+                                    <form id="activities-form">
+
+                                                                    <div class="form-outline mb-4">
+                                                                        <input type="text" id="activity-name-input" placeholder="for ex: fever" class="form-control form-control-lg" />
+                                                                        <label class="form-label" for="activity-name-input">Activity Name</label>
+                                                                    </div>
+
+                                                                    <div class="form-outline mb-4">
+                                                                        <input type="text" id="location" placeholder="for ex: home" class="form-control form-control-lg" />
+                                                                        <label class="form-label" for="location">Location</label>
+                                                                    </div>
+
+                                                                    <div class="form-outline mb-4">
+                                                                        <input type="checkbox" id="food-related" class="form-check-input" />
+                                                                        <label class="form-check-label" for="food-related">Food Related?</label>
+                                                                    </div>
+
+                                                                    <div class="form-outline mb-4">
+                                                                        <input type="checkbox" id="exercise-related" class="form-check-input" />
+                                                                        <label class="form-check-label" for="exercise-related">Exercise Related?</label>
+                                                                    </div>
+
+                                                                    <div class="form-outline mb-4">
+                                                                        <input type="number" id="duration" placeholder="for ex:90" class="form-control form-control-lg" />
+                                                                        <label class="form-label" for="duration">Duration</label>
+                                                                    </div>
+
+                                                                    <div class="d-flex justify-content-center">
+                                                                        <button type="submit"
+                                                                                id="submit-button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Submit</button>
+                                                                    </div>
+
+                                    </form>
+
                                 </div>
 
-                                <div class="form-outline mb-4">
-                                    <input type="text" id="location" placeholder="for ex: home" class="form-control form-control-lg" />
-                                    <label class="form-label" for="location">Location</label>
-                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                            <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                <h4> Instructions </h4>
 
-                                <div class="form-outline mb-4">
-                                    <input type="checkbox" id="food-related" class="form-check-input" />
-                                    <label class="form-check-label" for="food-related">Food Related?</label>
-                                </div>
+                                <li>
+                                    To record a symptom, please click on "symptoms" above.
+                                </li>
 
-                                <div class="form-outline mb-4">
-                                    <input type="checkbox" id="exercise-related" class="form-check-input" />
-                                    <label class="form-check-label" for="exercise-related">Exercise Related?</label>
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <input type="number" id="duration" placeholder="for ex:90" class="form-control form-control-lg" />
-                                    <label class="form-label" for="duration">Duration</label>
-                                </div>
-
-                                <div class="d-flex justify-content-center">
-                                    <button type="submit"
-                                            id="submit-button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Submit</button>
-                                </div>
-
-                            </form>
+                                <li> To record an activity, please click on "activities" above.</li>
+                                <li> To see a report of your recorded activities and symptoms, please click on "Report" above. </li>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <section class="link-buttons">
-        <div>
-            <a href="http://localhost:8080/home.html">Go to Home Page</a>
-        </div>
-        <div>
-            <a href="http://localhost:8080/report.html">View Report</a>
-        </div>
-        <div>
-            <a href="http://localhost:8080/symptoms.html">Go to Record Symptoms Page</a>
-        </div>
-        <div>
-            <a href="http://localhost:8080/home.html">Go to Record Activities Page</a>
-        </div>
-        <a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>
-    </section>
-
 </section>
 
-<!--<div id="activities-container" class="container-fluid"></div>-->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+
+<script type="text/javascript"></script>
 <script src="./javascript/activities.js" type="application/javascript"></script>
 </body>
 </html>

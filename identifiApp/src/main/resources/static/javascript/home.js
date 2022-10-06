@@ -88,6 +88,6 @@ function handleLogout(){
     }
 }
 
-getSymptoms(userId);
-
-submitForm.addEventListener("submit", handleSubmit)
+//getSymptoms(userId);
+//
+//submitForm.addEventListener("submit", handleSubmit)

@@ -48,7 +48,7 @@ async function getActivities(userId) {
         headers: headers
     })
         .then(response => response.json())
-        .then(data => createActivitiesCards(data))
+        .then(data => createActivitiesTable(data))
         .catch(err => console.error(err))
 }
 
@@ -62,28 +62,28 @@ async function getActivities(userId) {
 //    return getActivities(userId);
 //}
 
-const createActivitiesCards = (array) => {
-    activitiesContainer.innerHTML = ''
-console.log(array)
-    array.forEach(obj => {
-        console.log(obj)
-        let activitiesCard = document.createElement("div")
-        activitiesCard.classList.add("m-2")
-        activitiesCard.innerHTML = `
-            <div class="card d-flex" style="width: 18rem; height: 18rem;">
-                <div class="card-body d-flex flex-column  justify-content-between" style="height: available">
-                <P class = "card-text">${obj.activityName}</P>
-                <P class = "card-text">${obj.location}</P>
-                <P class = "card-text">${obj.foodRelated}</P>
-                <P class = "card-text">${obj.exerciseRelated}</P>
-                <P class = "card-text">${obj.duration}</P>
-               </div>
-               <button class="btn btn-danger" onclick="handleDelete(${obj.id})">Delete</button>
-            </div>
-        `
-        activitiesContainer.append(createActivitiesCards);
-    })
-}
+//const createActivitiesCards = (array) => {
+//    activitiesContainer.innerHTML = ''
+//console.log(array)
+//    array.forEach(obj => {
+//        console.log(obj)
+//        let activitiesCard = document.createElement("div")
+//        activitiesCard.classList.add("m-2")
+//        activitiesCard.innerHTML = `
+//            <div class="card d-flex" style="width: 18rem; height: 18rem;">
+//                <div class="card-body d-flex flex-column  justify-content-between" style="height: available">
+//                <P class = "card-text">${obj.activityName}</P>
+//                <P class = "card-text">${obj.location}</P>
+//                <P class = "card-text">${obj.foodRelated}</P>
+//                <P class = "card-text">${obj.exerciseRelated}</P>
+//                <P class = "card-text">${obj.duration}</P>
+//               </div>
+//               <button class="btn btn-danger" onclick="handleDelete(${obj.id})">Delete</button>
+//            </div>
+//        `
+//        activitiesContainer.append(createActivitiesCards);
+//    })
+//}
 
 function handleLogout(){
     let c = document.cookie.split(";");
