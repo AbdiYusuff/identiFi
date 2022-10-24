@@ -34,10 +34,10 @@ public class ActivitiesDto implements Serializable {
 
         this.foodRelated = activities.getFoodRelated();
 
-        this.exerciseRelated = getExerciseRelated();
+        this.exerciseRelated = activities.getExerciseRelated();
 
         if(activities.getDuration() != null){
-            this.duration = getDuration();
+            this.duration = activities.getDuration();
         }
     }
 }
